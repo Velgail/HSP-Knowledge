@@ -114,10 +114,16 @@ jobs:
             } else if (!validationResult.is_valid_format) {
               comment += '⚠️ **形式エラー**: 記事の形式に問題があります。\n\n';
             } else if (validationResult.auto_approve) {
-              comment += '✅ **承認可能**: 記事は適切です！\n\n';
-              comment += '投稿者は `@publish` とコメントすることで自動マージできます。\n\n';
+              if (validationResult.issues && validationResult.issues.length > 0) {
+                comment += '✅ **承認可能（改善提案あり）**: 記事は適切です！\n\n';
+                comment += '投稿者は `@publish` とコメントすることで自動マージできます。\n';
+                comment += '以下の改善提案は任意です（マージ前に修正しなくても構いません）。\n\n';
+              } else {
+                comment += '✅ **承認可能**: 記事は完璧です！\n\n';
+                comment += '投稿者は `@publish` とコメントすることで自動マージできます。\n\n';
+              }
             } else {
-              comment += '⚠️ **要確認**: 軽微な問題があります。\n\n';
+              comment += '⚠️ **要確認**: 問題があります。\n\n';
             }
             
             comment += `**判定サマリー**: ${validationResult.summary}\n\n`;

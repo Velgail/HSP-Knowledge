@@ -1,0 +1,40 @@
+# Gemini Code Assist Configuration for HSP-Knowledge
+
+# 楽しい機能（初回PR時に詩を含める等）を有効化
+have_fun: false
+
+# 無視するファイルパターン
+ignore_patterns:
+  - "_site/**"
+  - ".jekyll-cache/**"
+  - "**/*.pyc"
+  - "__pycache__/**"
+
+# 永続的メモリの設定
+memory_config:
+  disabled: false
+
+# コードレビューの設定
+code_review:
+  # コードレビュー機能を無効化しない
+  disable: false
+  
+  # コメントの重要度閾値（MEDIUM以上のコメントを表示）
+  comment_severity_threshold: MEDIUM
+  
+  # 最大コメント数（-1で無制限）
+  max_review_comments: -1
+  
+  # プルリクエストオープン時の設定
+  pull_request_opened:
+    # ヘルプメッセージを投稿するか
+    help: false
+    
+    # プルリクエストのサマリーを投稿するか
+    summary: true
+    
+    # コードレビューを投稿するか
+    code_review: true
+    
+    # ドラフトPRでも機能を有効化するか
+    include_drafts: true

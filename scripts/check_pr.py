@@ -63,10 +63,10 @@ class ArticleValidator:
 
         # 結果の集約
         result["issues"] = self.issues
+        # スパムでなく、形式が正しければ自動承認可能（軽微な問題は許容）
         result["auto_approve"] = (
             not result["is_spam"] 
-            and result["is_valid_format"] 
-            and len(self.issues) == 0
+            and result["is_valid_format"]
         )
 
         # サマリー生成
@@ -242,9 +242,12 @@ class ArticleValidator:
             return f"形式に問題があります: {', '.join(self.issues)}"
 
         if result["auto_approve"]:
-            return "記事は適切です。形式も正しく、HSPに関連する有益な内容です。"
+            if len(self.issues) == 0:
+                return "記事は適切です。形式も正しく、HSPに関連する有益な内容です。"
+            else:
+                return f"記事は承認可能です。軽微な改善提案: {', '.join(self.issues)}"
 
-        return f"軽微な問題があります: {', '.join(self.issues)}"
+        return f"要確認: {', '.join(self.issues)}"
 
 
 def main():
