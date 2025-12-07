@@ -1,0 +1,7 @@
+title: HSP-Knowledge
+description: Qiita的なHSPナレッジ共有の実験
+baseurl: "/HSP-Knowledge"   # リポジトリ名と合わせる
+url: "https://Velgail.github.io"   # あなたのユーザー名に合わせる
+markdown: kramdown
+theme: null
+plugins: []
