@@ -135,3 +135,64 @@ a:hover {
   overflow-x: auto;
   font-size: 13px;
 }
+
+/* レイアウト全体 */
+.layout-main {
+  display: flex;
+  gap: 24px;
+}
+
+/* メインカラムとサイドバー */
+.main-column {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.side-column {
+  flex: 0 0 260px;
+}
+
+/* サイドバーのボックス */
+.side-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.side-box h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.side-box p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.side-tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+
+.side-tag-list li {
+  margin-bottom: 4px;
+}
+
+.side-tag-list a {
+  text-decoration: none;
+}
+
+.side-tag-list a:hover {
+  text-decoration: underline;
+}
+
+.tag-count {
+  color: #777;
+  font-size: 11px;
+  margin-left: 4px;
+}

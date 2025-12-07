@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<h2>タグ: {{ page.tag }}</h2>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    {% if post.tags contains page.tag %}
+    <li class="post-card">
+      <h3 class="post-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h3>
+      <div class="post-meta">
+        <span class="post-date">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </span>
+        {% if post.author %}
+        <span class="post-author">by {{ post.author }}</span>
+        {% endif %}
+      </div>
+      <p class="post-summary">
+        {{ post.excerpt | strip_html | truncate: 120 }}
+      </p>
+    </li>
+    {% endif %}
+  {% endfor %}
+</ul>

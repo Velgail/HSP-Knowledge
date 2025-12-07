@@ -3,40 +3,68 @@ layout: default
 title: HSP-Knowledge
 ---
 
-<h2>記事一覧</h2>
+<div class="layout-main">
 
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li class="post-card">
-    <h3 class="post-title">
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    </h3>
-    <div class="post-meta">
-      <span class="post-date">
-        {{ post.date | date: "%Y-%m-%d" }}
-      </span>
-      {% if post.author %}
-      <span class="post-author">by {{ post.author }}</span>
-      {% endif %}
-    </div>
+  <!-- メインカラム: 記事一覧 -->
+  <div class="main-column">
+    <h2>記事一覧</h2>
 
-    {% if post.tags %}
-    <ul class="tag-list">
-      {% for tag in post.tags %}
-      <li class="tag-item">{{ tag }}</li>
+    <ul class="post-list">
+      {% for post in site.posts %}
+      <li class="post-card">
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <div class="post-meta">
+          <span class="post-date">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+          {% if post.author %}
+          <span class="post-author">by {{ post.author }}</span>
+          {% endif %}
+        </div>
+
+        {% if post.tags %}
+        <ul class="tag-list">
+          {% for tag in post.tags %}
+          <li class="tag-item">
+            <a href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <p class="post-summary">
+          {{ post.excerpt | strip_html | truncate: 120 }}
+        </p>
+      </li>
       {% endfor %}
     </ul>
-    {% endif %}
+  </div>
 
-    {% if post.summary %}
-    <p class="post-summary">
-      {{ post.summary }}
-    </p>
-    {% else %}
-    <p class="post-summary">
-      {{ post.excerpt | strip_html | truncate: 120 }}
-    </p>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
+  <!-- サイドバー -->
+  <aside class="side-column">
+    <section class="side-box">
+      <h3>このサイトについて</h3>
+      <p>
+        HSP に関する記事をゆるく集める Qiita風の実験サイトです。<br>
+        チュートリアル・Tips・解説などを Markdown で管理しています。
+      </p>
+    </section>
+
+    <section class="side-box">
+      <h3>タグ一覧</h3>
+      <ul class="side-tag-list">
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}
+        <li>
+          <a href="{{ '/tags/' | append: tag[0] | append: '/' | relative_url }}">
+            {{ tag[0] }} <span class="tag-count">({{ tag[1].size }})</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </aside>
+
+</div>
