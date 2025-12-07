@@ -16,8 +16,13 @@ title: HSP-Knowledge
     <div class="search-box">
       <input
         type="search"
-        id="post-search"
-        placeholder="記事を検索（タイトル・概要・タグ）"
+        id="post-search-keyword"
+        placeholder="キーワード検索（タイトル・概要）"
+        autocomplete="off">
+      <input
+        type="search"
+        id="post-search-tag"
+        placeholder="タグ検索"
         autocomplete="off">
     </div>
 
@@ -86,9 +91,10 @@ title: HSP-Knowledge
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var input = document.getElementById('post-search');
+  var inputKeyword = document.getElementById('post-search-keyword');
+  var inputTag = document.getElementById('post-search-tag');
   var list = document.getElementById('post-list');
-  if (!input || !list) return;
+  if (!inputKeyword || !inputTag || !list) return;
 
   var items = Array.prototype.slice.call(list.querySelectorAll('.post-card'));
 
@@ -97,41 +103,38 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // フィルタリング処理を関数化
-  function filterPosts(query) {
-    var q = normalize(query);
+  function filterPosts(keywordQuery, tagQuery) {
+    var kq = normalize(keywordQuery);
+    var tq = normalize(tagQuery);
 
     items.forEach(function (item) {
-      if (!q) {
-        item.style.display = '';
-        return;
-      }
-
       var title = normalize(item.getAttribute('data-title'));
       var tags  = normalize(item.getAttribute('data-tags'));
       var summary = normalize(
         item.querySelector('.post-summary')?.textContent || ''
       );
 
-      var hit =
-        title.indexOf(q) !== -1 ||
-        tags.indexOf(q) !== -1 ||
-        summary.indexOf(q) !== -1;
+      var keywordHit = !kq || title.indexOf(kq) !== -1 || summary.indexOf(kq) !== -1;
+      var tagHit = !tq || tags.indexOf(tq) !== -1;
 
-      item.style.display = hit ? '' : 'none';
+      item.style.display = (keywordHit && tagHit) ? '' : 'none';
     });
   }
 
-  // 1. 入力イベントでの検索
-  input.addEventListener('input', function () {
-    filterPosts(input.value);
-  });
+  // 入力イベントでの検索
+  function updateFilter() {
+    filterPosts(inputKeyword.value, inputTag.value);
+  }
 
-  // 2. URLパラメータ (?tag=...) の読み取りと初期実行
+  inputKeyword.addEventListener('input', updateFilter);
+  inputTag.addEventListener('input', updateFilter);
+
+  // URLパラメータ (?tag=...) の読み取りと初期実行
   var urlParams = new URLSearchParams(window.location.search);
   var tagParam = urlParams.get('tag');
   if (tagParam) {
-    input.value = tagParam; // 検索ボックスにタグ名を入れる
-    filterPosts(tagParam);  // 絞り込み実行
+    inputTag.value = tagParam; // タグ検索ボックスにタグ名を入れる
+    filterPosts('', tagParam);  // 絞り込み実行
   }
 });
 </script>

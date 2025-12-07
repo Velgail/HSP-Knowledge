@@ -2,56 +2,88 @@
 layout: default
 ---
 
-<article class="post-article">
-  <header class="post-header">
-    <h2 class="post-title">{{ page.title }}</h2>
-    <div class="post-meta">
-      <span class="post-date">
-        {{ page.date | date: "%Y-%m-%d" }}
-      </span>
-      {% if page.author %}
-      <span class="post-author">by {{ page.author }}</span>
-      {% endif %}
-    </div>
+<div class="layout-main">
 
-    {% if page.tags %}
-    <ul class="tag-list">
-      {% for tag in page.tags %}
-      <li class="tag-item">
-        <a href="{{ '/?tag=' | append: tag | relative_url }}">{{ tag }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-  </header>
+  <div class="main-column">
 
-  <section class="post-content">
-    {{ content }}
-  </section>
-</article>
+    <article class="post-article">
+      <header class="post-header">
+        <h2 class="post-title">{{ page.title }}</h2>
+        <div class="post-meta">
+          <span class="post-date">
+            {{ page.date | date: "%Y-%m-%d" }}
+          </span>
+          {% if page.author %}
+          <span class="post-author">by {{ page.author }}</span>
+          {% endif %}
+        </div>
 
-<hr class="post-separator">
+        {% if page.tags %}
+        <ul class="tag-list">
+          {% for tag in page.tags %}
+          <li class="tag-item">
+            <a href="{{ '/?tag=' | append: tag | relative_url }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </header>
 
-<section class="post-comments">
-  <h3>コメント</h3>
-  <div id="giscus"></div>
-  <script src="https://giscus.app/client.js"
-        data-repo="Velgail/HSP-Knowledge"
-        data-repo-id="R_kgDOQkB4TA"
-        data-category="コメント"
-        data-category-id="DIC_kwDOQkB4TM4Czfad"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="ja"
-        crossorigin="anonymous"
-        async>
-</script>
-</section>
+      <section class="post-content">
+        {{ content }}
+      </section>
+    </article>
 
-<section class="post-discussion-link">
-  <p>この記事に関する改善提案や質問は、<a href="https://github.com/Velgail/HSP-Knowledge/discussions" target="_blank">GitHub Discussions</a> でも受け付けています。</p>
-</section>
+    <hr class="post-separator">
+
+    <section class="post-comments">
+      <h3>コメント</h3>
+      <div id="giscus"></div>
+      <script src="https://giscus.app/client.js"
+            data-repo="Velgail/HSP-Knowledge"
+            data-repo-id="R_kgDOQkB4TA"
+            data-category="コメント"
+            data-category-id="DIC_kwDOQkB4TM4Czfad"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="preferred_color_scheme"
+            data-lang="ja"
+            crossorigin="anonymous"
+            async>
+    </script>
+    </section>
+
+    <section class="post-discussion-link">
+      <p>この記事に関する改善提案や質問は、<a href="https://github.com/Velgail/HSP-Knowledge/discussions" target="_blank">GitHub Discussions</a> でも受け付けています。</p>
+    </section>
+
+  </div>
+
+  <aside class="side-column">
+    <section class="side-box">
+      <h3>このサイトについて</h3>
+      <p>
+        HSP に関する記事をゆるく集める Qiita風の実験サイトです。<br>
+        チュートリアル・Tips・解説などを Markdown で管理しています。
+      </p>
+    </section>
+
+    <section class="side-box">
+      <h3>タグ一覧</h3>
+      <ul class="side-tag-list">
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}
+        <li>
+          <a href="{{ '/?tag=' | append: tag[0] | relative_url }}">
+            {{ tag[0] }} <span class="tag-count">({{ tag[1].size }})</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </aside>
+
+</div>

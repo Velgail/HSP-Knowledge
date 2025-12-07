@@ -24,5 +24,57 @@
   <footer class="site-footer">
     <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
   </footer>
+
+  <script>
+    // コードブロックにコピーボタンと行数表示を追加
+    document.addEventListener('DOMContentLoaded', function() {
+      const codeBlocks = document.querySelectorAll('pre');
+      codeBlocks.forEach((pre, index) => {
+        // コピーボタン追加
+        const copyButton = document.createElement('button');
+        copyButton.textContent = 'コピー';
+        copyButton.className = 'copy-button';
+        copyButton.onclick = function() {
+          const code = pre.querySelector('code');
+          if (code) {
+            navigator.clipboard.writeText(code.textContent).then(() => {
+              copyButton.textContent = 'コピー済';
+              setTimeout(() => copyButton.textContent = 'コピー', 2000);
+            });
+          }
+        };
+        pre.style.position = 'relative';
+        pre.appendChild(copyButton);
+
+        // 行数表示
+        const code = pre.querySelector('code');
+        if (code) {
+          const lines = code.textContent.split('\n');
+          const numberedCode = lines.map((line, i) => 
+            `<span class="line-number">${i + 1}</span>${line}`
+          ).join('\n');
+          code.innerHTML = numberedCode;
+        }
+      });
+    });
+
+    // 行数表示のスタイル
+    const style = document.createElement('style');
+    style.textContent = `
+      .line-number {
+        display: inline-block;
+        width: 30px;
+        text-align: right;
+        color: #888;
+        font-size: 12px;
+        user-select: none;
+        margin-right: 8px;
+      }
+      pre {
+        padding-left: 50px !important;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>

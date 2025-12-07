@@ -141,6 +141,42 @@ a:hover {
   color: #f8f8f2;
   overflow-x: auto;
   font-size: 13px;
+  position: relative;
+  counter-reset: line;
+  padding-left: 50px; /* 行番号用スペース */
+}
+
+.post-content pre code {
+  counter-increment: line;
+}
+
+.post-content pre code::before {
+  content: counter(line);
+  position: absolute;
+  left: 8px;
+  width: 30px;
+  text-align: right;
+  color: #888;
+  font-size: 12px;
+  user-select: none;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.copy-button:hover {
+  opacity: 1;
 }
 
 /* レイアウト全体 */
@@ -206,10 +242,13 @@ a:hover {
 
 .search-box {
   margin-bottom: 12px;
+  display: flex;
+  gap: 8px;
 }
 
-#post-search {
-  width: 100%;
+#post-search-keyword,
+#post-search-tag {
+  flex: 1;
   padding: 8px 10px;
   font-size: 14px;
   border-radius: 6px;
@@ -252,4 +291,30 @@ a:hover {
 
 .post-secondary-link {
   font-size: 14px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .layout-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .side-column {
+    flex: none;
+    order: 2;
+  }
+
+  .site-main {
+    margin: 16px auto 40px;
+    padding: 0 8px;
+  }
+
+  .post-article {
+    padding: 16px 20px;
+  }
+
+  .site-header-inner {
+    padding: 0 8px;
+  }
 }
