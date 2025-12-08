@@ -94,7 +94,7 @@ HSP-Knowledge/
 
 ### 1. Qiita風デザイン
 
-【ここにトップページのスクリーンショット画像】
+<img width="1817" height="967" alt="image" src="https://github.com/user-attachments/assets/b108545c-2932-4a90-bfc7-a318ffdf3fc5" />
 
 - 左サイドバー：タグ一覧
 - メインコンテンツ：記事カード
@@ -193,7 +193,7 @@ jobs:
 `scripts/check_pr.py` で以下をチェック：
 
 1. **ファイル名検証** - `YYYY-MM-DD-title.md` 形式か
-2. **Front Matter検証** - 必須フィールド（title, date, author, tags）が存在するか
+2. **Front Matter検証** - 必須フィールド（title, author, tags）が存在するか
 3. **テンプレート検証** - 「ここに本文を書きます」がそのまま残っていないか
 4. **スパム判定** - HSP関連キーワードが含まれているか、外部リンクが多すぎないか
 5. **更新時の検証** - 他人の記事のauthorを書き換えていないか
@@ -294,7 +294,6 @@ url: "https://your-username.github.io"
 ## 📚 関連リンク
 
 - [HSP-Knowledge GitHub リポジトリ](https://github.com/Velgail/HSP-Knowledge)
-- [記事の投稿方法](./2025-12-07-how-to-post.html)
 - [自動レビューシステムの詳細](https://github.com/Velgail/HSP-Knowledge/blob/main/docs/AUTO_REVIEW_SYSTEM.md)
 
 ## おわりに
