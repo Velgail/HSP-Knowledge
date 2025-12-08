@@ -39,8 +39,7 @@ ABATBelieverさん（HSP Wiki運営者）のコメントが的を射ていまし
 
 そして、その日のうちに実験場を公開：
 
-> 一応頑張ればGithub Pagesでできるっぽいので、実験場作ってみました。
-> https://velgail.github.io/HSP-Knowledge/
+> 一応頑張ればGithub Pagesでできるっぽいので、[実験場を作ってみました](https://velgail.github.io/HSP-Knowledge/)。
 
 ここから怒涛の開発が始まります。
 
