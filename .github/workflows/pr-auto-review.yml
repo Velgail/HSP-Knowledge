@@ -241,46 +241,6 @@ jobs:
             fi
           done < changed_files.txt
 
-      # 3.5. 記事のdate自動更新
-      - name: Update Article Dates
-        run: |
-          # PR内で変更された記事ファイルを検出
-          git fetch origin pull/${{ steps.pr.outputs.number }}/head:pr-branch
-          git checkout pr-branch
-          git checkout origin/${{ github.event.repository.default_branch }} -- scripts/update_article_dates.py
-          pip install pyyaml
-
-          # 変更されたファイル一覧を取得
-          git diff --name-only origin/${{ github.event.repository.default_branch }}...HEAD > changed_files.txt
-
-          # _posts/*.md ファイルを フィルタして update_article_dates.py に渡す
-          article_files=()
-          while IFS= read -r file; do
-            if [[ "$file" == _posts/*.md ]] && [[ "$file" != "_posts/template.md" ]]; then
-              if [ -f "$file" ]; then
-                article_files+=("$file")
-              fi
-            fi
-          done < changed_files.txt
-
-          # ファイルがあれば更新
-          if [ ${#article_files[@]} -gt 0 ]; then
-            python scripts/update_article_dates.py "${article_files[@]}"
-
-            # git 設定（bot名義でのコミット）
-            git config --local user.email "github-actions[bot]@users.noreply.github.com"
-            git config --local user.name "github-actions[bot]"
-
-            # 変更をステージング
-            git add "${article_files[@]}"
-
-            # コミット
-            git commit -m "🤖 記事のdate/lastupdateを自動更新\n投稿日時を現在時刻に自動設定します。"
-
-            # 現在のブランチを更新
-            git push origin pr-branch:refs/heads/${{ github.head_ref }}
-          fi
-
       # 4. Approve & Merge: 先にApproveを行い、その後マージを試行します
       - name: Approve and Merge
         uses: actions/github-script@v7

@@ -71,21 +71,16 @@ class ArticleValidator:
         """ファイル名の検証"""
         filename = self.file_path.name
 
-        # .md 拡張子チェック
-        if not filename.endswith('.md'):
-            self.issues.append(f"ファイル名が .md で終わっていません: {filename}")
-            return False
-
         # テンプレート名チェック
         invalid_names = ['template.md', 'new-article.md', '-new-article.md']
         if filename in invalid_names or filename.endswith('-new-article.md'):
             self.issues.append(f"ファイル名がテンプレートのままです: {filename}")
             return False
 
-        # 基本的な形式チェック: 英数字、ハイフン、アンダースコアのみ（.md前）
-        name_without_ext = filename[:-3]  # .md を除去
-        if not re.match(r'^[a-zA-Z0-9_-]+$', name_without_ext):
-            self.issues.append(f"ファイル名は英数字、ハイフン、アンダースコアのみ使用できます: {filename}")
+        # 日付形式チェック (YYYY-MM-DD-*.md)
+        pattern = r'^\d{4}-\d{2}-\d{2}-.+\.md$'
+        if not re.match(pattern, filename):
+            self.issues.append(f"ファイル名が 'YYYY-MM-DD-title.md' 形式ではありません: {filename}")
             return False
 
         return True
@@ -109,9 +104,7 @@ class ArticleValidator:
 
     def _validate_front_matter(self, front_matter: Dict) -> bool:
         """Front Matterの検証"""
-        # date と lastupdate はbot が自動設定するため必須ではない
-        # その他のフィールドは必須
-        required_fields = ['title', 'author', 'tags', 'summary']
+        required_fields = ['title', 'date', 'author', 'tags', 'summary']
         is_valid = True
 
         for field in required_fields:
@@ -246,8 +239,8 @@ def main():
     # 結果を JSON で出力
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
-    # 終了コードは常に0（結果の判定はJSONの内容で行う）
-    sys.exit(0)
+    # 終了コード
+    sys.exit(0 if result["auto_approve"] else 1)
 
 
 if __name__ == "__main__":
