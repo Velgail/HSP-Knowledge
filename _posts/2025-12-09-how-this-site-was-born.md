@@ -1,5 +1,6 @@
 ---
 layout: post
+date: 2025-12-09 00:58:00 +09:00
 title: 【開発記録】HSP-Knowledgeができるまで ─ 72時間で作ったQiita風ナレッジ共有サイト
 author: Velgail & Claude 4.5 Opus
 tags: [Tips, 開発記録, GitHub Pages, Jekyll, 自動化, チュートリアル]
