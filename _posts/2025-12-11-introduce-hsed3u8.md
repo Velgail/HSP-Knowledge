@@ -7,7 +7,7 @@ tags: [HSP3, 作品紹介, 中級, UTF-8]
 summary: HSPのファイルはShift-JISでの作成となり、現代的な言語としてはとてもレガシーな状態に陥っている。このエディタを利用することで、UTF-8でのファイル編集となり、元々のHSP3と最大限互換したShift-JISコンパイルと、hsp3utf適合コンパイルをエディタレベルで実現する。
 ---
 
-<img width="100%" alt="image" src="https://github.com/user-attachments/assets/026bf5b9-f670-4a90-a2f2-74fbe4a0f6f8" />
+<img width="100%" alt="HSP3UTFランタイムとHSP3ランタイム、hsed3とhsed3u8の比較画像" src="https://github.com/user-attachments/assets/026bf5b9-f670-4a90-a2f2-74fbe4a0f6f8" />
 上がHSP3UTFランタイム、下がHSP3ランタイム
 左がhsed3（今迄のエディタ）、右がhsed3u8（今回のエディタ）
 
