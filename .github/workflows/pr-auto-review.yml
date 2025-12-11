@@ -51,6 +51,7 @@ jobs:
         run: pip install pyyaml
 
       - name: Check Format and Permissions
+        id: validation
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           BASE_BRANCH: ${{ github.event.repository.default_branch }}
@@ -64,6 +65,7 @@ jobs:
           has_error=false
           has_files=false
           has_permission_error=false
+          files_fixed=false
 
           while IFS= read -r file; do
             # --- 🛡️ セキュリティチェック追加 ---
@@ -105,7 +107,7 @@ jobs:
               fi
               # --- 権限チェック完了 ---
 
-              # 形式チェック（元ファイルも渡す）
+              # 形式チェック with 自動修正（元ファイルも渡す）
               original_file=""
               if [ "$is_new_file" != "true" ]; then
                 # 元ファイルを取得
@@ -115,17 +117,22 @@ jobs:
                 fi
               fi
 
+              # --fix オプション付きで実行
               if [ -n "$original_file" ]; then
-                python scripts/check_pr.py "$file" "$original_file" > result.json
+                python scripts/check_pr.py "$file" "$original_file" --fix > result.json
               else
-                python scripts/check_pr.py "$file" > result.json
+                python scripts/check_pr.py "$file" --fix > result.json
               fi
 
+              fixed=$(jq -r '.fixed' result.json)
               valid=$(jq -r '.is_valid_format' result.json)
               errors=$(jq -r '.issues | join(", ")' result.json)
               suggestions_count=$(jq -r '.suggestions | length' result.json)
 
-              if [ "$valid" == "true" ]; then
+              if [ "$fixed" == "true" ]; then
+                echo "- 🔧 **$file**: date/lastupdate を自動修正しました。" >> report.md
+                files_fixed=true
+              elif [ "$valid" == "true" ]; then
                 if [ "$is_new_file" == "true" ]; then
                   echo "- ✅ **$file**: 新規作成 - 形式OK" >> report.md
                 else
@@ -145,6 +152,29 @@ jobs:
             fi
           done < changed_files.txt
 
+          # --- 修正があった場合のコミット & プッシュ処理 ---
+          if [ "$files_fixed" == "true" ]; then
+            echo "" >> report.md
+            echo "🔧 **自動修正を実行しました**" >> report.md
+            echo "" >> report.md
+            echo "変更内容をコミットしてプッシュします..." >> report.md
+            
+            # Git設定
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            
+            # 変更をコミット
+            git add _posts/
+            git commit -m "style: auto-fix date and lastupdate" || true
+            
+            # プッシュ (Fork元のブランチへ)
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            
+            echo "pushed=true" >> $GITHUB_OUTPUT
+            cat report.md >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+
           if [ "$has_files" = "false" ]; then
             echo "検証対象の記事ファイルが見つかりませんでした。" >> report.md
           elif [ "$has_permission_error" == "true" ]; then
@@ -162,7 +192,21 @@ jobs:
 
           cat report.md >> $GITHUB_STEP_SUMMARY
 
+      # 修正プッシュした場合はここでコメントして終了
+      - name: Comment Auto-Fix Result
+        if: steps.validation.outputs.pushed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '🔧 **自動修正を実行しました**\n\n`date` フィールドの変更を検知したため、自動的に修正しました。\n- `date`: 元の値に戻しました\n- `lastupdate`: 現在時刻に更新しました\n\n再度検証を実行します。'
+            });
+
       - name: Comment Result
+        if: steps.validation.outputs.pushed != 'true'
         uses: actions/github-script@v7
         with:
           script: |
@@ -176,7 +220,7 @@ jobs:
             });
 
       - name: Post Suggestions
-        if: always()
+        if: steps.validation.outputs.pushed != 'true'
         run: |
           # result.jsonからsuggestionsを読み取り、別コメントとして投稿
           if [ -f result.json ]; then
@@ -224,7 +268,7 @@ jobs:
           fi
 
       - name: Comment Suggestions
-        if: always()
+        if: steps.validation.outputs.pushed != 'true'
         uses: actions/github-script@v7
         with:
           script: |

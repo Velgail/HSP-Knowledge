@@ -18,12 +18,14 @@ import yaml
 class ArticleValidator:
     """記事の検証を行うクラス"""
 
-    def __init__(self, file_path: str, content: str, original_content: Optional[str] = None):
+    def __init__(self, file_path: str, content: str, original_content: Optional[str] = None, fix_mode: bool = False):
         self.file_path = Path(file_path)
         self.content = content
         self.original_content = original_content
+        self.fix_mode = fix_mode
         self.issues: List[str] = []
         self.suggestions: List[Dict] = []
+        self.fixed = False  # 修正が行われたか
 
     def validate(self) -> Dict:
         """記事の形式検証を実施（スパム判定はGeminiが担当）"""
@@ -31,7 +33,8 @@ class ArticleValidator:
             "is_valid_format": True,
             "auto_approve": False,
             "issues": [],
-            "summary": ""
+            "summary": "",
+            "fixed": False
         }
 
         # ファイル名検証
@@ -49,7 +52,7 @@ class ArticleValidator:
             if not self._validate_front_matter(front_matter):
                 result["is_valid_format"] = False
 
-            # 更新時の検証
+            # 更新時の検証と自動修正
             if self.original_content:
                 if not self._validate_update(front_matter):
                     result["is_valid_format"] = False
@@ -57,6 +60,12 @@ class ArticleValidator:
         # 本文検証
         if not self._validate_body(body):
             result["is_valid_format"] = False
+
+        # 修正モードならファイル書き込み
+        if self.fix_mode and self.fixed:
+            with open(self.file_path, 'w', encoding='utf-8') as f:
+                f.write(self.content)
+            result["fixed"] = True
 
         # 結果の集約
         result["issues"] = self.issues
@@ -130,7 +139,7 @@ class ArticleValidator:
         return is_valid
 
     def _validate_update(self, front_matter: Dict) -> bool:
-        """記事更新時の検証（投稿者名・日付の不変性）"""
+        """記事更新時の検証（投稿者名・日付の不変性）と自動修正"""
         if not self.original_content:
             return True
 
@@ -153,36 +162,69 @@ class ArticleValidator:
             original_date = str(original_fm['date'])
             new_date = str(front_matter['date'])
             if original_date != new_date:
-                self.issues.append(
-                    f"⚠️ dateフィールドの変更を検出: '{original_date}' → '{new_date}' (URLが変わります)"
-                )
+                # 修正モードなら自動修正を実行
+                if self.fix_mode:
+                    from datetime import datetime, timezone, timedelta
+                    current_time = datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M:%S +09:00')
+                    self._apply_date_fix(original_date, current_time)
+                    self.issues.append(f"dateフィールドを元の値に復元し、lastupdateを更新しました")
+                    # 修正したので成功扱い
+                    return True
+                else:
+                    # 修正モードでない場合は提案を生成
+                    self.issues.append(
+                        f"⚠️ dateフィールドの変更を検出: '{original_date}' → '{new_date}' (URLが変わります)"
+                    )
 
-                # lastupdate フィールドが更新されているかチェック
-                original_lastupdate = original_fm.get('lastupdate')
-                new_lastupdate = front_matter.get('lastupdate')
+                    # lastupdate フィールドが更新されているかチェック
+                    from datetime import datetime
+                    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S +09:00')
 
-                # dateを元に戻し、lastupdateを追加するsuggestionを生成
-                from datetime import datetime
-                current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S +09:00')
+                    suggestion_text = self._generate_date_fix_suggestion(
+                        front_matter,
+                        original_date,
+                        current_time
+                    )
 
-                suggestion_text = self._generate_date_fix_suggestion(
-                    front_matter,
-                    original_date,
-                    current_time
-                )
+                    self.suggestions.append({
+                        "type": "date_changed",
+                        "message": "dateフィールドを元に戻し、代わりにlastupdateを使用してください",
+                        "suggestion": suggestion_text,
+                        "original_date": original_date,
+                        "new_date": new_date
+                    })
 
-                self.suggestions.append({
-                    "type": "date_changed",
-                    "message": "dateフィールドを元に戻し、代わりにlastupdateを使用してください",
-                    "suggestion": suggestion_text,
-                    "original_date": original_date,
-                    "new_date": new_date
-                })
-
-                # dateの変更はマージをブロック
-                is_valid = False
+                    # dateの変更はマージをブロック
+                    is_valid = False
 
         return is_valid
+
+    def _apply_date_fix(self, original_date: str, current_time: str):
+        """正規表現を使ってコンテンツ内のdateを戻し、lastupdateを挿入/更新する"""
+        
+        # 1. date の書き換え (コメント等を維持するため正規表現を使用)
+        # 行頭の date: ... を探して置換
+        pattern_date = r'^date:.*$'
+        replacement_date = f'date: {original_date}'
+        self.content = re.sub(pattern_date, replacement_date, self.content, flags=re.MULTILINE)
+
+        # 2. lastupdate の更新または追加
+        pattern_lastupdate = r'^lastupdate:.*$'
+        replacement_lastupdate = f'lastupdate: {current_time}'
+        
+        if re.search(pattern_lastupdate, self.content, flags=re.MULTILINE):
+            # 既存のlastupdateがある場合は更新
+            self.content = re.sub(pattern_lastupdate, replacement_lastupdate, self.content, flags=re.MULTILINE)
+        else:
+            # ない場合は date の直後に挿入
+            self.content = re.sub(
+                r'^(date:.*)$', 
+                f'\\1\n{replacement_lastupdate}', 
+                self.content, 
+                flags=re.MULTILINE
+            )
+        
+        self.fixed = True
 
     def _generate_date_fix_suggestion(self, front_matter: Dict, original_date: str, current_time: str) -> str:
         """dateを元に戻し、lastupdateを追加するsuggestionを生成"""
@@ -266,6 +308,9 @@ class ArticleValidator:
 
     def _generate_summary(self, result: Dict) -> str:
         """判定結果のサマリーを生成（形式チェックのみ）"""
+        if result.get("fixed"):
+            return "dateフィールドを自動修正しました。"
+        
         if not result["is_valid_format"]:
             return f"形式に問題があります: {', '.join(self.issues)}"
 
@@ -280,36 +325,41 @@ class ArticleValidator:
 
 def main():
     """メイン処理"""
-    if len(sys.argv) < 2:
-        print("Usage: python check_pr.py <file_path> [original_file_path]")
-        sys.exit(1)
-
-    file_path = sys.argv[1]
-    original_file_path = sys.argv[2] if len(sys.argv) > 2 else None
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='HSP-Knowledge 記事投稿PR検証・修正スクリプト')
+    parser.add_argument('file_path', help='検証対象のファイルパス')
+    parser.add_argument('original_file_path', nargs='?', default=None, 
+                        help='元ファイルのパス（更新時の比較用）')
+    parser.add_argument('--fix', action='store_true', 
+                        help='自動修正モード（dateを元に戻し、lastupdateを更新）')
+    
+    args = parser.parse_args()
 
     # ファイル読み込み
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(args.file_path, 'r', encoding='utf-8') as f:
             content = f.read()
     except Exception as e:
         print(json.dumps({
             "error": f"ファイルの読み込みに失敗: {str(e)}",
             "is_valid_format": False,
             "auto_approve": False,
+            "fixed": False
         }))
         sys.exit(1)
 
     # 元ファイルの読み込み（更新の場合）
     original_content = None
-    if original_file_path and os.path.exists(original_file_path):
+    if args.original_file_path and os.path.exists(args.original_file_path):
         try:
-            with open(original_file_path, 'r', encoding='utf-8') as f:
+            with open(args.original_file_path, 'r', encoding='utf-8') as f:
                 original_content = f.read()
         except Exception:
             pass
 
     # 検証実行
-    validator = ArticleValidator(file_path, content, original_content)
+    validator = ArticleValidator(args.file_path, content, original_content, fix_mode=args.fix)
     result = validator.validate()
 
     # 結果を JSON で出力
