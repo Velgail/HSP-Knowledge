@@ -177,8 +177,8 @@ class ArticleValidator:
                     )
 
                     # lastupdate フィールドが更新されているかチェック
-                    from datetime import datetime
-                    current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S +09:00')
+                    from datetime import datetime, timezone, timedelta
+                    current_time = datetime.now(timezone(timedelta(hours=9))).strftime('%Y-%m-%d %H:%M:%S +09:00')
 
                     suggestion_text = self._generate_date_fix_suggestion(
                         front_matter,
@@ -241,26 +241,19 @@ class ArticleValidator:
         # 推奨順序: layout, title, date, lastupdate, author, tags, summary
         field_order = ['layout', 'title', 'date', 'lastupdate', 'author', 'tags', 'summary']
 
-        # 順序に従ってフィールドを出力
-        for field in field_order:
-            if field in updated_fm:
-                value = updated_fm[field]
-                if isinstance(value, list):
-                    fm_lines.append(f"{field}: {yaml.dump(value, allow_unicode=True, default_flow_style=True).strip()}")
-                elif isinstance(value, str):
-                    fm_lines.append(f"{field}: {value}")
-                else:
-                    fm_lines.append(f"{field}: {value}")
+        # 順序を考慮して全フィールドのリストを作成
+        all_keys = set(updated_fm.keys())
+        ordered_keys = [f for f in field_order if f in all_keys]
+        # 順序が指定されていないキーは、出力が安定するようにソートする
+        remaining_keys = sorted(list(all_keys - set(ordered_keys)))
 
-        # 残りのフィールド（field_orderにないもの）も出力
-        for field, value in updated_fm.items():
-            if field not in field_order:
-                if isinstance(value, list):
-                    fm_lines.append(f"{field}: {yaml.dump(value, allow_unicode=True, default_flow_style=True).strip()}")
-                elif isinstance(value, str):
-                    fm_lines.append(f"{field}: {value}")
-                else:
-                    fm_lines.append(f"{field}: {value}")
+        # 順序に従ってフィールドを出力
+        for field in ordered_keys + remaining_keys:
+            value = updated_fm[field]
+            if isinstance(value, list):
+                fm_lines.append(f"{field}: {yaml.dump(value, allow_unicode=True, default_flow_style=True).strip()}")
+            else:
+                fm_lines.append(f"{field}: {value}")
 
         fm_lines.append("---")
 

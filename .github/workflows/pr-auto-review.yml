@@ -168,7 +168,7 @@ jobs:
             git commit -m "style: auto-fix date and lastupdate" || true
             
             # プッシュ (Fork元のブランチへ)
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            git push origin HEAD:refs/heads/${{ github.event.pull_request.head.ref }}
             
             echo "pushed=true" >> $GITHUB_OUTPUT
             cat report.md >> $GITHUB_STEP_SUMMARY
