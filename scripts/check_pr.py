@@ -23,6 +23,7 @@ class ArticleValidator:
         self.content = content
         self.original_content = original_content
         self.issues: List[str] = []
+        self.suggestions: List[Dict] = []
 
     def validate(self) -> Dict:
         """記事の形式検証を実施（スパム判定はGeminiが担当）"""
@@ -59,6 +60,7 @@ class ArticleValidator:
 
         # 結果の集約
         result["issues"] = self.issues
+        result["suggestions"] = self.suggestions
         # 形式が正しければ自動承認可能（スパム判定はGeminiが担当）
         result["auto_approve"] = result["is_valid_format"]
 
@@ -128,7 +130,7 @@ class ArticleValidator:
         return is_valid
 
     def _validate_update(self, front_matter: Dict) -> bool:
-        """記事更新時の検証（投稿者名の不変性）"""
+        """記事更新時の検証（投稿者名・日付の不変性）"""
         if not self.original_content:
             return True
 
@@ -146,7 +148,81 @@ class ArticleValidator:
                 )
                 is_valid = False
 
+        # 日付が変更されていないかチェック（URL維持のため）
+        if 'date' in original_fm and 'date' in front_matter:
+            original_date = str(original_fm['date'])
+            new_date = str(front_matter['date'])
+            if original_date != new_date:
+                self.issues.append(
+                    f"⚠️ dateフィールドの変更を検出: '{original_date}' → '{new_date}' (URLが変わります)"
+                )
+
+                # lastupdate フィールドが更新されているかチェック
+                original_lastupdate = original_fm.get('lastupdate')
+                new_lastupdate = front_matter.get('lastupdate')
+
+                # dateを元に戻し、lastupdateを追加するsuggestionを生成
+                from datetime import datetime
+                current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S +09:00')
+
+                suggestion_text = self._generate_date_fix_suggestion(
+                    front_matter,
+                    original_date,
+                    current_time
+                )
+
+                self.suggestions.append({
+                    "type": "date_changed",
+                    "message": "dateフィールドを元に戻し、代わりにlastupdateを使用してください",
+                    "suggestion": suggestion_text,
+                    "original_date": original_date,
+                    "new_date": new_date
+                })
+
+                # dateの変更はマージをブロック
+                is_valid = False
+
         return is_valid
+
+    def _generate_date_fix_suggestion(self, front_matter: Dict, original_date: str, current_time: str) -> str:
+        """dateを元に戻し、lastupdateを追加するsuggestionを生成"""
+        # Front Matterを再構築（dateを元に戻し、lastupdateを追加）
+        updated_fm = front_matter.copy()
+        updated_fm['date'] = original_date
+        updated_fm['lastupdate'] = current_time
+
+        # YAMLとして出力
+        fm_lines = []
+        fm_lines.append("---")
+
+        # 元の順序を保持しつつlastupdateを追加
+        # 推奨順序: layout, title, date, lastupdate, author, tags, summary
+        field_order = ['layout', 'title', 'date', 'lastupdate', 'author', 'tags', 'summary']
+
+        # 順序に従ってフィールドを出力
+        for field in field_order:
+            if field in updated_fm:
+                value = updated_fm[field]
+                if isinstance(value, list):
+                    fm_lines.append(f"{field}: {yaml.dump(value, allow_unicode=True, default_flow_style=True).strip()}")
+                elif isinstance(value, str):
+                    fm_lines.append(f"{field}: {value}")
+                else:
+                    fm_lines.append(f"{field}: {value}")
+
+        # 残りのフィールド（field_orderにないもの）も出力
+        for field, value in updated_fm.items():
+            if field not in field_order:
+                if isinstance(value, list):
+                    fm_lines.append(f"{field}: {yaml.dump(value, allow_unicode=True, default_flow_style=True).strip()}")
+                elif isinstance(value, str):
+                    fm_lines.append(f"{field}: {value}")
+                else:
+                    fm_lines.append(f"{field}: {value}")
+
+        fm_lines.append("---")
+
+        return "\n".join(fm_lines)
 
     def _parse_markdown_content(self, content: str) -> Tuple[Optional[Dict], str]:
         """Markdown内容を解析（ヘルパーメソッド）"""
