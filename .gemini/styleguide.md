@@ -40,6 +40,9 @@ HSP-Knowledge は、HSP（Hot Soup Processor）に関する知識を共有する
 
 3. **更新時の検証**
    - 既存記事の更新時、投稿者名（author）が変更されていない
+   - **既存記事の更新時、`date`フィールドが変更されていない**
+     - `date`フィールドは記事のURL生成に使用されるため、変更すると既存のリンクが壊れます
+     - 更新日時を記録する場合は`lastupdate`フィールドを使用してください
 
 #### 改善提案項目（提案するが、マージは可能）
 
@@ -83,6 +86,24 @@ HSP-Knowledge は、HSP（Hot Soup Processor）に関する知識を共有する
 ![critical](https://www.gstatic.com/codereviewagent/critical-priority.svg)
 
 この記事はHSPと無関係な内容です。HSPに関連する技術的な内容に変更してください。
+```
+
+**HIGH（重要な修正が必要、修正後にマージ可能）:**
+```markdown
+![high](https://www.gstatic.com/codereviewagent/high-priority.svg)
+
+記事のパーマリンク（URL）を維持するため、Front Matterの`date`フィールドは変更しないことを強く推奨します。日付を変更すると記事のURLが変わり、既存のリンクが壊れる原因となります。また、ファイル名の日付とも一致しなくなります。
+
+更新日時を記録するには、代わりに`lastupdate`フィールドを使用してください。このフィールドはテーマでサポートされており、更新日として表示されます。
+
+`date`を元に戻し、`lastupdate`を新たに追加することをご提案します。
+
+期待するdiff結果(GitHubのSuggestion結果が以下のようになるようにする)
+\`\`\`diff
+-date: 2025-12-12 02:50:11 +09:00
++date: 2025-12-11 22:50:11 +09:00
++lastupdate: 2025-12-12 02:50:11 +09:00
+\`\`\`
 ```
 
 **MEDIUM（改善提案、マージ可能）:**
