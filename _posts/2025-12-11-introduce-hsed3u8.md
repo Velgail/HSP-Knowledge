@@ -85,8 +85,9 @@ HSP標準の `hsed3.exe` はShift-JISでファイルを保存するため、現�
 2.  メニューバーから **「ツール」→「参照ファイルをUTF-8に変換」** を選択します。
 <img width="100%" alt="image" src="https://github.com/user-attachments/assets/ddc4a24d-c653-47d9-beed-b308907a1a5e" />
 3.  確認ダイアログで「はい」を押すと、関連ファイルが一括変換されます。
-<img width="100%" alt="image" src="https://github.com/user-attachments/assets/f2981ce3-c7ba-4507-8850-b6b608fff1c7" />
-<img width="100%" alt="image" src="https://github.com/user-attachments/assets/6a7f4f64-759d-44f1-9ad5-58fe36c4735c" />
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/44942925-0821-4d22-b392-0abb753b5c46" />
+
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/8c2d8748-20ee-4112-be4f-61017c791d5c" />
 
 
 -----
