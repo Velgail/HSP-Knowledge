@@ -1,7 +1,8 @@
 ---
 layout: post
 title: HSPスクリプトエディタのUTF-8版「hsed3u8.exe」を作りました！
-date: 2025-12-11 22:50:11 +09:00
+date: 2025-12-12 02:50:11+09:00
+lastupdate: 2025-12-12 02:58:02 +09:00
 author: Velgail
 tags: [HSP3, 作品紹介, 中級, UTF-8]
 summary: HSPのファイルはShift-JISでの作成となり、現代的な言語としてはとてもレガシーな状態に陥っている。このエディタを利用することで、UTF-8でのファイル編集となり、元々のHSP3と最大限互換したShift-JISコンパイルと、hsp3utf適合コンパイルをエディタレベルで実現する。
