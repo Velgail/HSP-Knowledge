@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HSPスクリプトエディタのUTF-8版「hsed3u8.exe」を作りました！
-date: 2025-12-12 3:36:11 +09:00
+date: 2025-12-11 22:50:11 +09:00
 lastupdate: 2025-12-12 02:50:11 +09:00
 author: Velgail
 tags: [HSP3, 作品紹介, 中級, UTF-8]
