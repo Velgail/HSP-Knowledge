@@ -2,6 +2,7 @@
 layout: post
 title: 記事タイトル（ここを変更）
 date: YYYY-MM-DD HH:MM:SS +0900
+# lastupdate: YYYY-MM-DD HH:MM:SS +0900  # 記事を更新した場合に追加（dateは変更しないこと！）
 author: あなたの名前
 tags: [HSP3, 関連タグ]
 summary: 記事の概要をここに書く（120文字以内）
