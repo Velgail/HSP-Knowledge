@@ -1,7 +1,7 @@
 ---
 layout: post
 title: HSPスクリプトエディタのUTF-8版「hsed3u8.exe」を作りました！
-date: 2025-12-12 02:50:11 +09:00
+date: 2025-12-11 22:50:11 +09:00
 author: Velgail
 tags: [HSP3, 作品紹介, 中級, UTF-8]
 summary: HSPのファイルはShift-JISでの作成となり、現代的な言語としてはとてもレガシーな状態に陥っている。このエディタを利用することで、UTF-8でのファイル編集となり、元々のHSP3と最大限互換したShift-JISコンパイルと、hsp3utf適合コンパイルをエディタレベルで実現する。
@@ -16,9 +16,6 @@ summary: HSPのファイルはShift-JISでの作成となり、現代的な言�
 **hsed3u8.exe** は、HSP（Hot Soup Processor）標準のスクリプトエディタ（hsed3.exe）をベースに、**UTF-8（原則BOMなし）** での保存・読み込みに対応させた派生エディタです。
 
 従来のShift-JIS環境では困難だった **GitHubでのソースコード管理（日本語コメントの文字化け回避、正確な差分表示）** を、HSPの使い勝手はそのままに実現します。
-
-* **[ダウンロードはこちら](https://drive.google.com/file/d/1z2zG-jCT3dFQPtBqlbJRSpkrxyZkhVuK/view?usp=drive_link) Google Drive**
-* **[自己ビルドはこちらから](https://github.com/Velgail/OpenHSP/tree/feature/hsed3u8)** GitHub Repo (Visual Studio 2026で検証)
 
 ## 解決する課題
 
