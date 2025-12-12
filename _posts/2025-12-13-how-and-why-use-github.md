@@ -11,6 +11,8 @@ summary: 事件です！　昨日まで動いていたコードが動かなく�
 
 {% include toc.html %}
 
+(挿絵は全てGemini製のため、一部文字列に誤りがあります)
+
 **「もう失敗を恐れなくていい。」**
 
 <img width="80%" alt="image" src="https://github.com/user-attachments/assets/ec2f448d-ba32-42e3-8e03-545668da97dd" />
@@ -35,8 +37,6 @@ summary: 事件です！　昨日まで動いていたコードが動かなく�
 {% include chat.html face="https://github.com/user-attachments/assets/6f6a4fb4-9ffa-44df-8dfd-b134831e4d76" name="ミサキ" color="red" text="あー、あるある。`shooting.hsp`、`shooting_tama.hsp`、`shooting_tama_atari.hsp`、`shooting_tama_atari_sound.hsp`、`shooting_ugoku_yatsu.hsp`...って感じでファイルが増えていくやつね（笑）" %}
 {% include chat.html face="https://github.com/user-attachments/assets/f1a20f91-5738-4e89-b847-4f651f4c5c9b" name="ケンタ" color="blue" text="まさに！どれが最新かわからなくて、バックアップもぐちゃぐちゃで...先輩、どうしたらいいんですか...！？" %}
 
-<!-- 画像案：ぐちゃぐちゃなファイル名が並んだフォルダのスクリーンショット -->
-
 ファイル名で管理していると、こういう問題は誰もが一度は経験するもの。でも、実はこれを解決する素晴らしいツールがあるんです。
 
 ---
@@ -53,7 +53,7 @@ summary: 事件です！　昨日まで動いていたコードが動かなく�
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text="おお...！それなら、間違えて大事なコードを消しちゃっても戻せるってことですか？" %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text="その通り！しかも、「いつ」「誰が」「何を」「なぜ」変更したかも全部記録できるの。メモも残せるから、後で見返したときに「あれ、なんでこうしたんだっけ？」ってならないのよ" %}
 
-<!-- 画像案：セーブデータのスロットとGitの履歴を並べた比較図 -->
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/c7672f5f-032c-47fa-85cf-c3131540932c" />
 
 Gitとは「バージョン管理システム」のこと。プログラムの変更履歴を記録して、過去の状態に戻したり、変更内容を確認したりできる優れものです。
 
@@ -112,15 +112,15 @@ GitHubは「クラウドストレージ」としても機能します。ただ�
 {% include chat.html face="https://github.com/user-attachments/assets/f1a20f91-5738-4e89-b847-4f651f4c5c9b" name="ケンタ" color="blue" text="でも、そういうツールって、使い方が難しそうで...コマンドとか覚えないといけないんですよね？" %}
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text="確かに、Gitのコマンドは最初はちょっと戸惑うかもね。でも大丈夫！" %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text="大丈夫なんですか...？" %}
-{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="うん。実は、GitHubには「GitHub Desktop」っていうアプリがあるの。これを使えば、マウスでポチポチするだけでGitが使えるのよ" %}
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="うん。実は、GitHubには「GitHub Desktop」っていうアプリがあるの。これを使えば、マウスでポチポチするだけでGitが使えるのよ<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/bc7a82af-4673-439c-acb9-af1b977736d9" />" %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text="えっ、コマンド打たなくていいんですか！？" %}
 {% include chat.html face="https://github.com/user-attachments/assets/ae3eb7e8-10da-411f-884f-c5e06f315528" name="ミサキ" color="red" text="打たなくていいの（笑）。ボタンを押すだけで保存できるし、履歴も見やすいし、初心者にはすごくおすすめよ" %}
 {% include chat.html face="https://github.com/user-attachments/assets/6436d587-a398-4d60-b3cc-9a12fb429f8c" name="ケンタ" color="blue" text="それなら僕でもできそう...！" %}
 {% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text="それに、慣れてきたらコマンドも覚えていけばいいから。最初はアプリで感覚をつかむのが一番よ" %}
 
-<!-- 画像案：GitHub Desktopの画面スクリーンショット -->
-
 GitHub Desktopは無料でダウンロードできます。Windows版もMac版もあり、直感的な操作でGitを使えます。
+
+[GitHub Desktop](https://github.com/apps/desktop?ref_product=desktop&ref_type=engagement&ref_style=button&locale=ja)
 
 ---
 
@@ -151,9 +151,9 @@ GitHubでコードの差分（Diff）を正しく表示するために、UTF-8�
 
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="じゃあ、実際の使い方を簡単に説明するわね" %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text="はい！" %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text="まず、GitHubのサイトでアカウントを作るの。メールアドレスがあれば無料で作れるわ" %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text="まず、GitHubのサイトでアカウントを作るの。メールアドレスがあれば無料で作れるわ<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/1495e0f9-79ea-4df7-b07d-89972ddd6af9" />" %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text="アカウント登録って、面倒じゃないですか...？" %}
-{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text="全然！メールアドレスとパスワード、ユーザー名を決めるだけで、1分もかからないわよ" %}
+{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text="全然！メールアドレスとパスワード、ユーザー名を決めるだけで、1分もかからないわよ<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/b46fff54-a0b2-466d-b8e9-5b451e598532" />" %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text="そんなに簡単なんですか！" %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="それに、実はGitHubは2018年にMicrosoftに買収されて、今はMicrosoft傘下なの" %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text="えっ、マイクロソフト！？Windowsの！？" %}
@@ -161,7 +161,6 @@ GitHubでコードの差分（Diff）を正しく表示するために、UTF-8�
 {% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text="なるほど...！Windowsの会社なら信頼できますね！" %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text="大手企業も、中小企業もお金を払ってPrivateリポジトリで自社サービスを開発しているわよ。あ、でも個人向けはPrivateが無料だから安心して使ってね！" %}
 
-<!-- 画像案：GitHubのサインアップ画面 -->
 
 GitHubは2018年にMicrosoftが75億ドルで買収。世界最大のソフトウェア企業の傘下にあるため、安定性と信頼性は抜群です。
 
@@ -192,11 +191,11 @@ Privateリポジトリは5人までの共有が無料で、それ以上が有料
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text="じゃあ、実際にケンタくんのシューティングゲームをGitHubで管理してみましょうか" %}
 {% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text="はい！お願いします！" %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text="まず、GitHubにログインして、右上の「+」ボタンから「New repository」を選ぶの" %}
-{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text="（操作しながら）えっと...あった！「New repository」..." %}
-{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="リポジトリの名前は「shooting-game」とかでいいわね。下の方に「Private」ってチェックボックスがあるから、それにチェックを入れて" %}
+{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text="（操作しながら）えっと...あった！「New repository」... <br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/cd9eca07-5ec4-45c9-aaa4-14a8380e0bc1" />" %}
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="リポジトリの名前は「shooting-game」とかでいいわね。下の方に「Private」ってチェックボックスがあるから、それにチェックを入れて<br/><img width="100%" alt="Screen Shot 2025-12-10 at 01 12 37" src="https://github.com/user-attachments/assets/9e89743e-6983-4eba-8277-a4abf514ae43" />" %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text="プライベート...これで自分だけになるんですね。チェックしました！" %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text="「Create repository」ボタンを押したら、リポジトリの完成よ" %}
-{% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text="できた！なんか、自分専用の保管庫ができた気分です...！" %}
+{% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text="できた！なんか、自分専用の保管庫ができた気分です...！<br/><img width="100%" alt="Screen Shot 2025-12-10 at 01 13 55" src="https://github.com/user-attachments/assets/2f8c31a1-c01c-4520-9208-3ff5aecd9f0e" />" %}
 
 <!-- 画像案：New repository作成画面（Private選択状態） -->
 
@@ -254,7 +253,7 @@ desktop.ini
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text="あの、「#」から始まる行は何ですか？" %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text="それは「コメント」ね。メモみたいなもので、Gitは無視するわ。自分が後で見返すときのために書いておくの。HSPで言うなれば、 `;` コメント、あるいは `//` コメントよ" %}
 {% include chat.html face="https://github.com/user-attachments/assets/d75d2bde-5e93-4095-8591-f6ba676960d2" name="ケンタ" color="blue" text="なるほど...親切ですね" %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text="あと、「*.exe」は『すべてのexeファイル』って意味。「*」はワイルドカードって言って、『何でもいい』って意味なの" %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text="あと、「`*.exe`」は『すべてのexeファイル』って意味。「`*`」はワイルドカードって言って、『何でもいい』って意味なの" %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text="へぇ...便利ですね！" %}
 
 <!-- 画像案：.gitignore設定後、不要ファイルが消えた画面 -->
