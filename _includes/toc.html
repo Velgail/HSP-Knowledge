@@ -1,0 +1,101 @@
+<div class="table-of-contents">
+  <h2>目次</h2>
+  <nav id="toc">
+    <!-- Table of Contents will be generated here -->
+  </nav>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toc = document.getElementById('toc');
+  // 記事本文のみを対象にする
+  const content = document.querySelector('.post-article');
+  
+  if (!content) return;
+  
+  // Get all headings (h2, h3, h4) - but exclude the post title
+  const headings = content.querySelectorAll('h2:not(.post-title), h3, h4');
+  
+  if (headings.length === 0) return;
+  
+  let tocHTML = '<ul>';
+  let currentLevel = 2;
+  
+  headings.forEach((heading, index) => {
+    const level = parseInt(heading.tagName.substring(1));
+    const text = heading.textContent;
+    
+    // Create ID if not exists
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+    
+    // Handle nesting
+    if (level > currentLevel) {
+      for (let i = currentLevel; i < level; i++) {
+        tocHTML += '<ul>';
+      }
+    } else if (level < currentLevel) {
+      for (let i = level; i < currentLevel; i++) {
+        tocHTML += '</ul></li>';
+      }
+    } else if (index > 0) {
+      tocHTML += '</li>';
+    }
+    
+    tocHTML += `<li><a href="#${heading.id}">${text}</a>`;
+    currentLevel = level;
+  });
+  
+  // Close remaining tags
+  for (let i = 2; i < currentLevel; i++) {
+    tocHTML += '</ul></li>';
+  }
+  tocHTML += '</li></ul>';
+  
+  toc.innerHTML = tocHTML;
+});
+</script>
+
+<style>
+.table-of-contents {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.table-of-contents h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+#toc ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#toc ul ul {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+#toc li {
+  margin: 0.5rem 0;
+}
+
+#toc a {
+  text-decoration: none;
+  color: #0066cc;
+  transition: color 0.2s;
+}
+
+#toc a:hover {
+  color: #004499;
+  text-decoration: underline;
+}
+</style>
