@@ -501,10 +501,42 @@ Pull Requestは「マージ前の検査場」。ここで最終チェックを�
 {% include chat.html face="https://github.com/user-attachments/assets/d75d2bde-5e93-4095-8591-f6ba676960d2" name="ケンタ" color="blue" text='すごい...一人で開発してると、誰にも見てもらえないから不安だったんですけど...' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='でしょ？一人プロジェクトでも、AIがペアプログラミングの相手になってくれる感じね' %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='どうやって使うんですか？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='GitHubのMarketplaceから「Gemini Code Assist」をインストールするだけよ。無料で使えるわ' %}
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='GitHubのMarketplaceから「[Gemini Code Assist](https://github.com/apps/gemini-code-assist)」をインストールするだけよ。無料で使えるわ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='それ、すぐ入れます！　……って先輩いつの間に入れていたの？！' %}
 
-<!-- 画像：Gemini Code Assistの具体的なコードレビュー（マジックナンバーの指摘） -->
+[Gemini Code Assist](https://github.com/apps/gemini-code-assist)を入れる作業は以下の通り
+
+<img width="100%" alt="Screen Shot 2025-12-13 at 21 55 51" src="https://github.com/user-attachments/assets/5828ddf2-8d26-4f7e-8ad3-50fa785616ac" />
+
+Installを押します
+
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/84dde147-2b60-41f4-a067-8f53c464d370" />
+
+全部または特定のリポジトリを見ていいよ　と設定します。
+
+<img width="100%" alt="Screen Shot 2025-12-13 at 22 00 19" src="https://github.com/user-attachments/assets/76ecbc97-485e-4cb3-97c4-4e3d2104915e" />
+
+今度はGeminiにGitHubのアカウントでログインします。
+
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/1cc28115-83cc-45bd-ae30-5d4c15251b24" />
+
+自分のアカウントを選んでContinueします。
+
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/633076e0-8fd4-4d95-8823-9cb4c56ecd91" />
+
+GitHubアカウントのどの情報を見るかを確認されるのでAuthorizeします。
+
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/1bdc7ff0-0cdb-4881-b153-bb7af9b02b6c" />
+
+Geminiの利用規約に同意します。
+
+<img width="100%" alt="Screen Shot 2025-12-13 at 22 01 11" src="https://github.com/user-attachments/assets/fc05cef6-99a3-416a-b2c4-372290d02ff3" />
+
+レビューのしきい値はそのままでいいでしょう。
+
+<img width="100%" alt="Screen Shot 2025-12-13 at 22 01 16" src="https://github.com/user-attachments/assets/73ebb737-6ce7-431a-93df-99e38589e15e" />
+
+これにてインストール完了です！
 
 {% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text='必要だったからね。ただし、AIの提案が常に正しいとは限らないし、問題の全てを指摘してくれることもないから、「なるほど、こういう考え方もあるんだ」くらいの気持ちで参考にするのがいいわね' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='わかりました！鵜呑みにしないで、自分でも考えるようにします' %}
