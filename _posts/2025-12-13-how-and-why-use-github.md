@@ -406,15 +406,15 @@ Revertは「やり直し」ではなく「打ち消し」。履歴は消さず�
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='ブランチ...さっき言ってた、平行世界を作るやつですよね' %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='そう！例えば、「ボスキャラを追加したいけど、うまくいくかわからない」って時、新しいブランチを作るの' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='どうやって作るんですか？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='GitHub Desktopの上の方に「Current branch」ってあるでしょ？そこをクリックして「New branch」を選ぶの。名前は「boss-character」とかでいいわね' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='GitHub Desktopの上の方に「Current branch」ってあるでしょ？そこをクリックして「New branch」を選ぶの。<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/8449402e-d962-4ac3-9c1c-9340d11b0466" /><br/>名前は「boss-character」とかでいいわね<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/6b0dd06f-d26d-4f26-ba67-a8865b1e5cc9" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='はい...（作成中）...できました！' %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='これで、今から書くコードは「boss-character」ブランチに記録されるの。元の「main」ブランチには影響しないわ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/6436d587-a398-4d60-b3cc-9a12fb429f8c" name="ケンタ" color="blue" text='じゃあ、失敗しても大丈夫なんですね！' %}
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='そう。うまくいったら「main」に合流（マージ）させて、失敗したらブランチを削除すればいいの' %}
 
-<!-- 画像案：ブランチ作成画面 -->
-
 ブランチを使えば、「安全な実験場」が手に入ります。
+
+（※：画像を作るとき、うっかりboss-characterじゃなくてboss-battleにしちゃいました……）
 
 ---
 
