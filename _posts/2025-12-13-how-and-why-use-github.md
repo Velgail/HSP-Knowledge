@@ -1,4 +1,4 @@
----
+<img width="1280" height="800" alt="Screen Shot 2025-12-13 at 20 23 36" src="https://github.com/user-attachments/assets/72051668-5f46-4910-b33c-0e5cef750e3b" />---
 layout: post
 title: 初心者でもわかる！GitHubって何？～ケンタとミサキの優しいGit入門～
 date: 2025-12-13 03:43:20 +09:00
@@ -85,7 +85,7 @@ GitHubは無料でプライベートリポジトリを作成できます（無�
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='うん。例えば、「今動いてるゲーム」はそのままにして、「新しい敵キャラを追加してみる実験」を別のブランチでやるの。うまくいったら元に合流させて、失敗したら捨てればいい' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d75d2bde-5e93-4095-8591-f6ba676960d2" name="ケンタ" color="blue" text='なるほど...！「完成版」と「実験版」を分けて管理できるってことですね' %}
 
-<!-- 画像案：ブランチの概念図（mainから分岐して戻ってくる矢印） -->
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/3ed6a5fc-026b-42db-9b51-9b6be0ef0b20" />
 
 ブランチは、同じプロジェクトの中で「平行世界」を作れる機能。メインの開発を止めずに、新しいアイデアを試せます。
 
@@ -197,28 +197,25 @@ Privateリポジトリは5人までの共有が無料で、それ以上が有料
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='「Create repository」ボタンを押したら、リポジトリの完成よ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='できた！なんか、自分専用の保管庫ができた気分です...！<br/><img width="100%" alt="Screen Shot 2025-12-10 at 01 13 55" src="https://github.com/user-attachments/assets/2f8c31a1-c01c-4520-9208-3ff5aecd9f0e" />' %}
 
-<!-- 画像案：New repository作成画面（Private選択状態） -->
-
 ---
 
-{% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text='いい感覚ね（笑）。次に、GitHub Desktopを開いて、「Clone a repository」を選んで、今作ったリポジトリを選ぶの' %}
+{% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text='いい感覚ね（笑）。次に、GitHub Desktopを開いて、「Clone a repository」を選んで、今作ったリポジトリを選ぶの<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/f2b36e6e-671a-4964-97ac-9b285f3bcd4f" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='えっと...「shooting-game」...あった！どこに保存しますか？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='ドキュメントフォルダとか、わかりやすい場所でいいわよ' %}
-{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='（操作中）...できました！' %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='じゃあ、そのフォルダに、今まで作ってたHSPファイルをコピーしてみて' %}
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='ドキュメントフォルダとか、わかりやすい場所でいいわよ<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/2f036ce5-2760-4bd6-b517-af2cb8053441" />' %}
+{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='（操作中）...できました！<img width="100%" alt="image" src="https://github.com/user-attachments/assets/5d4785f9-8a96-4ad0-9aea-7337e6c0765d" />' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='じゃあ、Show in Explorerをクリックして、エクスプローラーでそのフォルダに、今まで作ってたHSPファイルをコピーしてみて' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='はい...（コピー中）...入れました' %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='GitHub Desktopを見てみて。左側に変更されたファイルが表示されてるはずよ' %}
-{% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='ホントだ！「shooting.hsp」って表示されてる...！' %}
-
-<!-- 画像案：GitHub Desktopで変更ファイルが表示されている画面 -->
+{% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='ホントだ！「shooting.hsp」って表示されてる...！<img width="100%" alt="image" src="https://github.com/user-attachments/assets/bd5d0b27-349a-44b9-83dc-b2a3fad5e42b" />' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='もしここでhsed3.exe（標準）を使っていると、右の差分表示が文字化けして読めないことになっているわ。注意してね' %}
 
 ---
 
 ### .gitignoreを設定する
 
-{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='（ファイルをコピーして）...あれ、先輩、変なファイルも表示されてます...' %}
+{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='（一回HSPで実行してみて）...あれ、先輩、変なファイルも表示されてます...' %}
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='変なファイル？どんなの？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='えっと...「hsptmp」とか「obj」とか「packfile」とか...' %}
+{% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='えっと...「hsptmp」とか「obj」とか「packfile」とか...<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/25b0e759-a38f-4476-a163-e8033499c728" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='あー！それはHSPが自動で作る一時ファイルね。実行したりコンパイルすると勝手にできるやつ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='これ、コミットしちゃダメなんですか？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='ダメダメ！これをコミットすると、実行するたびに『ファイルが変更された』って表示されて、めちゃくちゃ混乱するわよ' %}
@@ -229,6 +226,8 @@ Privateリポジトリは5人までの共有が無料で、それ以上が有料
 
 HSPは実行時に一時ファイルを自動生成します。これらはプログラムの本体ではないので、Gitで管理する必要はありません。
 
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='一つ一つ手作業で除外することも出来るけど<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/6aea0ba1-124f-47b9-bf1d-2fb6dfe6173d" /><br/>(Ignore file (add to .gitignore)を選ぶ)<br/>ここではHSP特有の`.gitignore`を教えるわ' %}
+
 ---
 
 ### HSP用の.gitignoreファイル
@@ -238,7 +237,7 @@ HSPは実行時に一時ファイルを自動生成します。これらはプ�
 ```gitignore
 # HSPの一時ファイル
 hsptmp
-obj/
+obj
 packfile
 *.ax
 
@@ -256,7 +255,7 @@ desktop.ini
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='あと、「`*.exe`」は『すべてのexeファイル』って意味。「`*`」はワイルドカードって言って、『何でもいい』って意味なの' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='へぇ...便利ですね！' %}
 
-<!-- 画像案：.gitignore設定後、不要ファイルが消えた画面 -->
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/fc0ee72d-bc71-48de-8519-107d52deef68" />
 
 .gitignoreファイルは、プロジェクトの「門番」のようなもの。一度作っておけば、あとは自動で不要ファイルを弾いてくれます。
 
@@ -267,17 +266,15 @@ desktop.ini
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='じゃあ、初めてのコミットをしてみましょう。左下の「Summary」っていう欄に、メモを書くの' %}
 {% include chat.html face="https://github.com/user-attachments/assets/b748d508-55d0-4d62-9de1-f839a2d3e600" name="ケンタ" color="blue" text='えっと...何て書けばいいんですか？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='最初だから「初回コミット」とか「プロジェクト開始」とかでいいわよ。英語で「Initial commit」って書く人も多いわね' %}
-{% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='じゃあ「シューティングゲーム、プロジェクト開始！」って書きます' %}
+{% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='じゃあ「シューティングゲーム、プロジェクト開始！」って書きます<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/9a128e4a-cd47-4c6b-a782-9ce7d6a1d538" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text='いいわね！気持ちがこもってる（笑）。じゃあ、青い「Commit to main」ボタンを押してみて' %}
 {% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='（ポチッ）...あれ、ファイルの表示が消えた？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='正解！コミット（保存）されたから、変更済みファイルのリストから消えたのよ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='おお...！' %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='最後に、上の「Push origin」ボタンを押して、GitHubに送るの' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='最後に、上の「Push origin」……初回だからPublish branchボタンを押して、GitHubに送るの<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/af36bfd0-960c-46d6-b63f-a61b5052b66f" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/f142bf03-36b0-481e-b729-1a9689b91d74" name="ケンタ" color="blue" text='（ポチッ）...これで完了ですか？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='そう！GitHubのサイトに戻って、リポジトリを見てみて' %}
-{% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='（ブラウザを見る）わあ...！ファイルがアップロードされてる...！すごい...！' %}
-
-<!-- 画像案：GitHubでファイルがアップロードされた画面 -->
+{% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='（ブラウザを見る）わあ...！ファイルがアップロードされてる...！すごい...！<br/><img width="100%" alt="Screen Shot 2025-12-13 at 16 00 25" src="https://github.com/user-attachments/assets/4cd305af-a23a-43d3-bb9d-9342cbeeb001" />' %}
 
 おめでとうございます！これで、あなたのコードは安全にGitHubで管理されるようになりました。
 
@@ -307,7 +304,11 @@ desktop.ini
 
 **家で作業する時も、学校で作業する時も、やることは同じ：**
 
-1. **プル**（最新版を取得）
+1. **フェッチ&プル**（最新版を取得）
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/422d3a10-a222-4b67-87db-7d6f27c861b7" />
+Fetch originをクリックして
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/5dc94917-e01d-40ca-89a2-16c8b2be03b1" />
+Pull originをクリックする
 2. **作業**（プログラミング）
 3. **コミット**（保存）
 4. **プッシュ**（アップロード）
@@ -316,30 +317,34 @@ desktop.ini
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='そう、まったく同じ（笑）。重要なのは「作業前に必ずプル」ってこと。これを忘れると、古いバージョンで作業しちゃうから' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='気をつけます！' %}
 
-<!-- 画像案：プル→作業→コミット→プッシュのサイクル図 -->
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/9a3b095f-282b-4664-b96a-e1521705ba38" />
 
 マルチデバイス開発の極意は「プルを忘れない」。これさえ守れば、トラブルはほぼ起きません。
 
 ---
 
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='もし両方のPCで同時に作業しちゃったらどうなるんですか？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='そしたら、Gitが「コンフリクトしてるよ」って教えてくれるの' %}
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='そしたら、Gitが「コンフリクトしてるよ」って教えてくれるの<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/10711a1a-11c6-41b8-ab09-f12d3d6e2ff6" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/f1a20f91-5738-4e89-b847-4f651f4c5c9b" name="ケンタ" color="blue" text='コンフリクト...！怖い...！' %}
-{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='大丈夫、落ち着いて。GitHub Desktopなら、「自分の変更を優先」か「相手（クラウド）の変更を優先」かをボタンで選べるから、パニックにならなくても大丈夫よ' %}
+{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='大丈夫、落ち着いて。この場合は、各ファイルをエディターで修正するか、"Use the modified file from main"、つまり手元のファイルを使うか、"Use the modified file from origin/main"、つまりGitHubのファイルを使うかを選べるわ。' %}
 {% include chat.html face="https://github.com/user-attachments/assets/6436d587-a398-4d60-b3cc-9a12fb429f8c" name="ケンタ" color="blue" text='そうなんですね...でも、できればコンフリクトは避けたいです...' %}
 {% include chat.html face="https://github.com/user-attachments/assets/ae3eb7e8-10da-411f-884f-c5e06f315528" name="ミサキ" color="red" text='その気持ち、大事よ。だから、「プッシュ忘れない」「プルを習慣にする」を徹底すれば大丈夫！' %}
 
 コンフリクトは怖くありません。GitHub Desktopなら、GUIで簡単に解決できます。
 
+（エディターで修正する作業、超大変なので、本当にコンフリクトさせるようなことはしないようにしましょう！）
+
 ---
 
-{% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='あ、でも一つ心配なんですけど...学校のPCって、再起動したらファイル消えちゃうんです...' %}
+{% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='あ、でも一つ心配なんですけど...学校のPC※って、再起動したらファイル消えちゃうんです...' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='逆にGitHubが超便利なのよ！作業が終わったらプッシュしておけば、PCのデータが消えても、GitHubには残ってるから' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='あっ、そうか！クラウドに保存されてるから大丈夫なんですね！' %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='その通り！むしろ、そういう環境でこそGitHubの真価が発揮されるわ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='すごい...もうUSBメモリ持ち歩かなくていいんですね...！' %}
 
 GitHubは、データが消える環境でも安心。クラウドに保存されているので、いつでもどこでも作業を再開できます。
+
+※注：学校のPCに勝手にGitHub Desktopをインストールしていいかは、学校の人に聞いて下さい。
 
 ---
 
@@ -352,7 +357,7 @@ GitHubは、データが消える環境でも安心。クラウドに保存さ�
 
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='例えば、新しい敵キャラを追加してみたけど、全然うまくいかなくて、コードがぐちゃぐちゃになっちゃった、みたいな状況' %}
 {% include chat.html face="https://github.com/user-attachments/assets/f1a20f91-5738-4e89-b847-4f651f4c5c9b" name="ケンタ" color="blue" text='あるある...！そういう時、Ctrl+Zで戻そうとするんですけど、どこまで戻せばいいかわからなくなって...' %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='そういう時こそ、Gitの出番！変更したファイルを右クリックして、「Discard changes...（変更を破棄）」を選ぶの' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='そういう時こそ、Gitの出番！変更したファイルを右クリックして、「Discard changes...（変更を破棄）」を選ぶの<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/4432f5d5-9288-4288-99ff-3ef4feeb39e5" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='これを選ぶと...？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='前回コミットした時の状態に、一瞬で戻るの！まさにセーブポイントに戻るゲームみたいでしょ？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='すごい...！じゃあ、何時間かけて失敗したコードも、一瞬で消せるんですか？' %}
@@ -368,7 +373,7 @@ GitHubは、データが消える環境でも安心。クラウドに保存さ�
 
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='次は、コミットした後で「やっぱりダメだった」ってパターンね' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='コミットした後でも戻せるんですか？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='戻せるわよ。GitHub Desktopの「History」タブで、戻りたいコミットを右クリックして、「Revert changes in commit」を選ぶの' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='戻せるわよ。GitHub Desktopの「History」タブで、戻りたいコミットを右クリックして、「Revert changes in commit」を選ぶの<br/><img width="100%" alt="image" src="https://github.com/user-attachments/assets/6862d943-8d9e-41bd-bcda-e7bcf3201afe" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='「Revert（リバート）」...？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='「打ち消す」って意味ね。例えば、「敵キャラを追加」ってコミットをRevertすると、「敵キャラを削除」っていう新しいコミットが作られるの。履歴は残るけど、内容は元に戻るわ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='へぇ...！便利ですね' %}
@@ -444,10 +449,15 @@ Revertは「やり直し」ではなく「打ち消し」。履歴は消さず�
 | 途中のステップも全部残したい | **ブランチで管理** |
 | 複数の実験を同時にやりたい | **ブランチ複数作成** |
 | 遠い過去の1つのコミットだけ打ち消したい | **Revert** |
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/ac796d9c-5128-4572-9a8e-04eeb52ebb1b" />
 
 {% include chat.html face="https://github.com/user-attachments/assets/b343fba6-67e5-4b6b-afb3-a0002d7eb85d" name="ケンタ" color="blue" text='わかりました！今後はブランチを積極的に使います！' %}
 
 ブランチは「実験を安全に管理する仕組み」。Revertは「古い変更を打ち消す仕組み」。用途が違うのです。
+
+重要なこととして、コミットした歴史は**変えられません**※。なので、ブランチを使うことで、その方向性の歴史をなかったことに出来る唯一の方策にもなります。
+
+※　厳密にはやり方はいくらでもあるけど、本質的には無いとしたほうが安全です。
 
 ---
 
@@ -458,19 +468,19 @@ Revertは「やり直し」ではなく「打ち消し」。履歴は消さず�
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='プル...リクエスト？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='「この変更をmainブランチに取り込んでください」っていうお願いを出す機能なの' %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='でも、僕一人でやってるんですけど...自分に自分でお願いするんですか？' %}
-{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='そう見えるけど（笑）、実はこれ、一人プロジェクトでもすごく便利なのよ！' %}
+{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='そう見えるけど（笑）、実はこれ、一人プロジェクトでもすごく便利なのよ！　まずはboss-battleブランチをPublishしましょう！' %}
 
 ---
 
-{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='Pull Requestを使うと、変更内容を「レビュー画面」で見られるの。何を追加して、何を削除したか、一目でわかるのよ' %}
+{% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='GitHubに行くと、Compare & Pull Requestという画面が出ているわね。<br/><img width="100%" alt="Screen Shot 2025-12-13 at 20 16 40" src="https://github.com/user-attachments/assets/50b5eff8-b136-48b2-8e8c-d4f50d7ea1db" /><br/>このPull Requestを使うと、変更内容を「レビュー画面」で見られるの。何を追加して、何を削除したか、一目でわかるのよ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='へぇ...！' %}
-{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='「Files changed」っていうタブをクリックすると、変更内容が色分けで表示されるの。赤が削除、緑が追加ね' %}
+{% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='クリックするとこんな画面よ。<br/><img width="100%" alt="Screen Shot 2025-12-13 at 20 23 32" src="https://github.com/user-attachments/assets/1272e320-9692-49a2-ae04-4675ea847657" /><br/>下に行くと変更内容が色分けで表示されるの。赤が削除、緑が追加ね<br/><img width="100%" alt="Screen Shot 2025-12-13 at 20 20 19" src="https://github.com/user-attachments/assets/c00a2280-cadc-41c8-b0c2-a1d4c61f7488" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='わかりやすい...！' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='ここで、自分のコードをじっくり見直すの。「このコメント、わかりにくいな」とか「この変数名、もっといい名前にしよう」とか気づくことが多いのよ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d75d2bde-5e93-4095-8591-f6ba676960d2" name="ケンタ" color="blue" text='客観的に見られるってことですね！' %}
-{% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='まさに！問題なければ、「Merge pull request」ボタンを押せば、mainブランチに合流できるわ' %}
+{% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='まさに！問題なければ、後で読み返してもわかるように内容を書いて<br/><img width="100%" alt="Screen Shot 2025-12-13 at 20 23 36" src="https://github.com/user-attachments/assets/adf87f89-b65f-419b-9240-ffaba3486f9d" />「Create pull request」ボタンを押せば、晴れてPull Requestが出来るわ。出来たPRは<br><img width="100%" alt="Screen Shot 2025-12-13 at 20 28 37" src="https://github.com/user-attachments/assets/d5867033-9912-4aba-99fe-068021b67417" /><br/>このように見れて、必要ならもう一回File changedでどんな変更を加えたかを見ることも出来るわ。最後は下にスクロールしてMerge pull requestよ！<br/><img width="100%" alt="Screen Shot 2025-12-13 at 20 29 05" src="https://github.com/user-attachments/assets/d10b019e-4c0e-4271-a888-69fe63c21d65" />' %}
 
-<!-- 画像案：Pull RequestのFiles changed画面（diff表示） -->
+---
 
 Pull Requestは「マージ前の検査場」。ここで最終チェックをすることで、品質の高いコードをmainブランチに保てます。
 
@@ -478,14 +488,14 @@ Pull Requestは「マージ前の検査場」。ここで最終チェックを�
 
 ### AIがコードを見てくれる？
 
-{% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='あっ、先輩！Pull Requestに何かコメントがついてるんですけど...僕、誰にも共有してないのに...' %}
-{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='あー、それはGemini Code Assistね' %}
+{% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='あっ、先輩！Pull Requestに何かコメントがついてるんですけど...僕、誰にも共有してないのに...<br/><img width="100%" alt="Screen Shot 2025-12-13 at 20 32 39" src="https://github.com/user-attachments/assets/a7eefa18-6a8b-4a9d-a372-f0e2c60004d9" />' %}
+{% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='あー、それはGemini Code Assistね<br/><img width="100%" alt="Gemini Code Assist Logo" src="https://github.com/user-attachments/assets/5ab1ed45-2415-4d74-9c4c-2316832c4504" />' %}
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='ジェミニ...？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/da42644e-501b-45a9-8cab-3ef08e926733" name="ミサキ" color="red" text='GoogleのAIがコードを自動でレビューしてくれる機能よ。Pull Requestを作ると、勝手にコードを見て「ここ、こうした方がいいんじゃない？」って提案してくれるの' %}
 {% include chat.html face="https://github.com/user-attachments/assets/c6204e7f-312d-4157-a759-09d7ae6ceaae" name="ケンタ" color="blue" text='えっ、AIが先生みたいにレビューしてくれるんですか！？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/bcb05627-febb-450f-915d-dc92b92539f5" name="ミサキ" color="red" text='そう！例えば、「この数字、マジックナンバーだから定数にした方がいいよ」とか、具体的にアドバイスしてくれるのよ' %}
 
-<!-- 画像：Gemini Code AssistのSummary of Changes画面 -->
+<img width="100%" alt="Screen Shot 2025-12-13 at 20 35 38" src="https://github.com/user-attachments/assets/877057bc-09e9-4bda-a33e-a16443f9aaa0" />
 
 {% include chat.html face="https://github.com/user-attachments/assets/d75d2bde-5e93-4095-8591-f6ba676960d2" name="ケンタ" color="blue" text='すごい...一人で開発してると、誰にも見てもらえないから不安だったんですけど...' %}
 {% include chat.html face="https://github.com/user-attachments/assets/d5d8bdb5-08d2-4334-aec9-b9bcd8ca4c7b" name="ミサキ" color="red" text='でしょ？一人プロジェクトでも、AIがペアプログラミングの相手になってくれる感じね' %}
@@ -495,7 +505,7 @@ Pull Requestは「マージ前の検査場」。ここで最終チェックを�
 
 <!-- 画像：Gemini Code Assistの具体的なコードレビュー（マジックナンバーの指摘） -->
 
-{% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text='必要だったからね。ただし、AIの提案が常に正しいとは限らないから、「なるほど、こういう考え方もあるんだ」くらいの気持ちで参考にするのがいいわね' %}
+{% include chat.html face="https://github.com/user-attachments/assets/29b59426-e842-4399-a21d-592b354c534d" name="ミサキ" color="red" text='必要だったからね。ただし、AIの提案が常に正しいとは限らないし、問題の全てを指摘してくれることもないから、「なるほど、こういう考え方もあるんだ」くらいの気持ちで参考にするのがいいわね' %}
 {% include chat.html face="https://github.com/user-attachments/assets/41730ebd-75a2-40d5-9a8e-bcdd80e66700" name="ケンタ" color="blue" text='わかりました！鵜呑みにしないで、自分でも考えるようにします' %}
 
 Gemini Code Assistは、Pull Requestに自動でレビューコメントをつけてくれるAIツールです。一人開発でも「第三者の目」が得られるので、コードの品質向上に役立ちます。
@@ -511,6 +521,9 @@ Gemini Code Assistは、Pull Requestに自動でレビューコメントをつ�
 {% include chat.html face="https://github.com/user-attachments/assets/7027ab79-dae1-4cc0-ba13-b26e5a205f63" name="ケンタ" color="blue" text='えっ、削除しちゃっていいんですか？' %}
 {% include chat.html face="https://github.com/user-attachments/assets/82139cab-21c9-4e3d-9af2-24fa1fa9df44" name="ミサキ" color="red" text='大丈夫。マージ済みのブランチは、もう役目を終えたから。GitHubが「Delete branch」ボタンも用意してくれてるわ' %}
 {% include chat.html face="https://github.com/user-attachments/assets/0ab8afeb-dba9-464c-adf4-91ec49a5d579" name="ケンタ" color="blue" text='なるほど...整理整頓も大事なんですね！' %}
+
+<img width="100%" alt="Screen Shot 2025-12-13 at 20 37 11" src="https://github.com/user-attachments/assets/e852bdf0-5636-42dd-bfb9-a9f8e951a7d5" />
+<img width="100%" alt="Screen Shot 2025-12-13 at 20 37 17" src="https://github.com/user-attachments/assets/a738ba95-a722-45a1-9bd6-35968264c8ed" />
 
 マージ済みのブランチは削除してOK。Pull Requestの記録は残るので、履歴は失われません。
 
