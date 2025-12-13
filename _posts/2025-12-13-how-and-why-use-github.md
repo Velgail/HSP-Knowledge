@@ -1,4 +1,4 @@
-<img width="1280" height="800" alt="Screen Shot 2025-12-13 at 20 23 36" src="https://github.com/user-attachments/assets/72051668-5f46-4910-b33c-0e5cef750e3b" />---
+---
 layout: post
 title: 初心者でもわかる！GitHubって何？～ケンタとミサキの優しいGit入門～
 date: 2025-12-13 03:43:20 +09:00
